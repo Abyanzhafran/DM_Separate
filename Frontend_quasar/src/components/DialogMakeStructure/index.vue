@@ -22,8 +22,8 @@
                     <q-tooltip
                         v-if="maximizedToggle"
                         content-class="bg-white text-primary"
-                        >Minimize</q-tooltip
-                    >
+                        >Minimize
+                    </q-tooltip>
                 </q-btn>
                 <q-btn
                     dense
@@ -35,18 +35,18 @@
                     <q-tooltip
                         v-if="!maximizedToggle"
                         content-class="bg-white text-primary"
-                        >Maximize</q-tooltip
-                    >
+                        >Maximize
+                    </q-tooltip>
                 </q-btn>
                 <q-btn dense flat icon="close" v-close-popup>
-                    <q-tooltip content-class="bg-white text-primary"
-                        >Close</q-tooltip
-                    >
+                    <q-tooltip content-class="bg-white text-primary">
+                        Close
+                    </q-tooltip>
                 </q-btn>
             </q-bar>
 
             <q-card-section>
-                <div class="text-h6">CREATE YOUR ORGANISATIONAL STRUCTURE</div>
+                <div class="text-h6">CREATE YOUR ORGANIZATIONAL STRUCTURE</div>
             </q-card-section>
 
             <q-card-section class="q-pt-none">
@@ -108,19 +108,29 @@
 
                     <q-card-section>
                         <div
-                            v-for="stakeholder in stakeholders"
-                            :key="stakeholder.id"
+                            v-for="(stakeholder, indexs) in stakeholders"
+                            :key="stakeholder"
                             class="q-mb-md"
                         >
+                            <div class="col-8 float-right">
+                                <q-btn
+                                    @click.stop="deleteStakeholderModal(indexs)"
+                                    flat
+                                    round
+                                    dense
+                                    color="primary"
+                                    icon="delete"
+                                />
+                            </div>
                             <q-input
                                 outlined
-                                v-model="stakeholders.type"
+                                v-model="stakeholder.type"
                                 class="q-mb-md"
                                 placeholder="Manager's type"
                                 dense
                             />
                             <q-input
-                                v-model="stakeholders.value"
+                                v-model="stakeholder.value"
                                 filled
                                 clearable
                                 autogrow
@@ -154,12 +164,13 @@
 
                     <q-card-section>
                         <div
-                            v-for="division in divisions"
-                            :key="division.id"
+                            v-for="(division, index) in divisions"
+                            :key="division"
                             class="q-mb-md"
                         >
                             <div class="col-8 float-right">
                                 <q-btn
+                                    @click.stop="deleteDivisionModal(index)"
                                     flat
                                     round
                                     dense
@@ -169,13 +180,13 @@
                             </div>
                             <q-input
                                 outlined
-                                v-model="divisions.type"
+                                v-model="division.type"
                                 class="q-mb-md"
                                 placeholder="Manager's type"
                                 dense
                             />
                             <q-input
-                                v-model="divisions.value"
+                                v-model="division.value"
                                 filled
                                 clearable
                                 autogrow
@@ -247,19 +258,21 @@ export default {
         // },
         addStakeholderModal() {
             this.stakeholders.push({
-                id: uid(),
-                value: null,
-                type: null,
+                id: uid()
             });
         },
-        deleteStakeholderModal() {},
+        deleteStakeholderModal(indexs) {
+            this.stakeholders.splice(indexs, 1)
+        },
         addDivisionModal() {
             this.divisions.push({
-                id: uid(),
-                value: null,
-                type: null,
+                id: uid()
             });
         },
+        deleteDivisionModal(index) {
+            this.divisions.splice(index, 1)
+        }
     },
 };
 </script>
+
