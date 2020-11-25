@@ -1,0 +1,265 @@
+<template>
+    <!-- MAXIMIZED DIALOG FOR MAKE A STRUCTURE -->
+    <q-dialog
+        :value="value"
+        @input="$emit('input', $event)"
+        persistent
+        :maximized="maximizedToggle"
+        transition-show="slide-up"
+        transition-hide="slide-down"
+    >
+        <q-card class="bg-teal-14 text-white">
+            <q-bar>
+                <q-space />
+
+                <q-btn
+                    dense
+                    flat
+                    icon="minimize"
+                    @click="maximizedToggle = false"
+                    :disable="!maximizedToggle"
+                >
+                    <q-tooltip
+                        v-if="maximizedToggle"
+                        content-class="bg-white text-primary"
+                        >Minimize</q-tooltip
+                    >
+                </q-btn>
+                <q-btn
+                    dense
+                    flat
+                    icon="crop_square"
+                    @click="maximizedToggle = true"
+                    :disable="maximizedToggle"
+                >
+                    <q-tooltip
+                        v-if="!maximizedToggle"
+                        content-class="bg-white text-primary"
+                        >Maximize</q-tooltip
+                    >
+                </q-btn>
+                <q-btn dense flat icon="close" v-close-popup>
+                    <q-tooltip content-class="bg-white text-primary"
+                        >Close</q-tooltip
+                    >
+                </q-btn>
+            </q-bar>
+
+            <q-card-section>
+                <div class="text-h6">CREATE YOUR ORGANISATIONAL STRUCTURE</div>
+            </q-card-section>
+
+            <q-card-section class="q-pt-none">
+                <!-- CARD FOR STRUCTURE -->
+                <q-card class="bg-white-9 my-card q-mb-md">
+                    <q-card-section>
+                        <div bordered class="text-dark text-h5">
+                            Leadership Structure
+                        </div>
+                    </q-card-section>
+
+                    <q-separator class="q-mb-lg" color="dark" inset />
+
+                    <q-card-section>
+                        <!-- <q-select
+                            outlined
+                            v-model="model"
+                            class="q-mb-md"
+                            :options="options"
+                            label="Outlined"
+                            use-input
+                        /> -->
+                        <q-input
+                            outlined
+                            v-model="ph"
+                            class="q-mb-md"
+                            placeholder="Chairman"
+                            :dense="(dense = true)"
+                        />
+                        <q-input
+                            outlined
+                            v-model="ph"
+                            class="q-mb-md"
+                            placeholder="Vice Chairman"
+                            :dense="(dense = true)"
+                        />
+                    </q-card-section>
+                </q-card>
+
+                <!-- STAKEHOLDER'S CARD -->
+                <q-card class="bg-white-9 my-card q-mb-md">
+                    <q-card-section>
+                        <div bordered class="text-dark text-h5">
+                            Stakeholder Structure
+                            <div class="col-8 float-right">
+                                <q-btn
+                                    @click="addStakeholderModal"
+                                    round
+                                    dense
+                                    flat
+                                    icon="add_box"
+                                    style="font-size: 0.8em"
+                                />
+                            </div>
+                        </div>
+                    </q-card-section>
+
+                    <q-separator class="q-mb-lg" color="dark" inset />
+
+                    <q-card-section>
+                        <div
+                            v-for="stakeholder in stakeholders"
+                            :key="stakeholder.id"
+                            class="q-mb-md"
+                        >
+                            <q-input
+                                outlined
+                                v-model="stakeholders.type"
+                                class="q-mb-md"
+                                placeholder="Manager's type"
+                                dense
+                            />
+                            <q-input
+                                v-model="stakeholders.value"
+                                filled
+                                clearable
+                                autogrow
+                                color="green-8"
+                                label="Explain your Stakeholder Function"
+                            />
+                        </div>
+                    </q-card-section>
+                </q-card>
+                <!-- END STAKEHOLDER -->
+
+                <!-- DIVISION'S CARD -->
+                <q-card class="bg-white-9 my-card q-mb-md">
+                    <q-card-section>
+                        <div bordered class="text-dark text-h5">
+                            Division Structure
+                            <div class="col-8 float-right">
+                                <q-btn
+                                    @click="addDivisionModal"
+                                    round
+                                    dense
+                                    flat
+                                    icon="add_box"
+                                    style="font-size: 0.8em"
+                                />
+                            </div>
+                        </div>
+                    </q-card-section>
+
+                    <q-separator class="q-mb-lg" color="dark" inset />
+
+                    <q-card-section>
+                        <div
+                            v-for="division in divisions"
+                            :key="division.id"
+                            class="q-mb-md"
+                        >
+                            <div class="col-8 float-right">
+                                <q-btn
+                                    flat
+                                    round
+                                    dense
+                                    color="primary"
+                                    icon="delete"
+                                />
+                            </div>
+                            <q-input
+                                outlined
+                                v-model="divisions.type"
+                                class="q-mb-md"
+                                placeholder="Manager's type"
+                                dense
+                            />
+                            <q-input
+                                v-model="divisions.value"
+                                filled
+                                clearable
+                                autogrow
+                                color="green-8"
+                                label="Explain your Stakeholder Function"
+                            />
+                        </div>
+                    </q-card-section>
+                </q-card>
+                <!-- END DIVISION -->
+
+                <q-btn
+                    class="float-right q-mb-md"
+                    color="primary"
+                    label="Save"
+                />
+
+                <!-- END OF CARD -->
+            </q-card-section>
+        </q-card>
+    </q-dialog>
+    <!-- END OF DIALOG -->
+</template>
+
+<script>
+import { event, uid } from "quasar";
+
+export default {
+    name: 'DialogMakeStructure',
+    props: {
+        value: {
+            type: Boolean,
+            required: true,
+        },
+    },
+    data: () => ({
+        /* DIALOG MAXIMIZED */
+        maximizedToggle: true,
+        dense: false,
+        model: null,
+
+        /* AUTO GROW TEXTAREA */
+        inputModel: "",
+        textareaModel: "",
+
+        inputFillCancelled: false,
+        textareaFillCancelled: true,
+
+        stakeholders: [
+            {
+                id: uid(),
+                value: null,
+                type: null,
+            },
+        ],
+        divisions: [
+            {
+                id: uid(),
+                value: null,
+                type: null,
+            },
+        ],
+    }),
+    methods: {
+        // SYNTAXIS
+        // addElementModal() {
+        //   this.clone(this.stakeholders, null, null)
+        //   this.clone(this.divisions, null, null)
+        // },
+        addStakeholderModal() {
+            this.stakeholders.push({
+                id: uid(),
+                value: null,
+                type: null,
+            });
+        },
+        deleteStakeholderModal() {},
+        addDivisionModal() {
+            this.divisions.push({
+                id: uid(),
+                value: null,
+                type: null,
+            });
+        },
+    },
+};
+</script>

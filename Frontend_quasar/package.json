@@ -1,12 +1,11 @@
 {
-  "name": "frontend_quasar",
+  "name": "quasar_app",
   "version": "0.0.1",
-  "description": "UI Data management with quasar",
-  "productName": "Frontend_quasar",
+  "description": "A Quasar Framework app",
+  "productName": "Quasar App",
   "author": "Abyanzhafran <zhafranjupleks5758@gmail.com>",
   "private": true,
   "scripts": {
-    "lint": "eslint --ext .js,.vue ./",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
@@ -15,16 +14,7 @@
     "quasar": "^1.0.0"
   },
   "devDependencies": {
-    "@quasar/app": "^2.0.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^6.8.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-loader": "^3.0.3",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^6.1.2"
+    "@quasar/app": "^2.0.0"
   },
   "browserslist": [
     "last 10 Chrome versions",

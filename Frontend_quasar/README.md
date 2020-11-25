@@ -1,6 +1,6 @@
-# Frontend_quasar (frontend_quasar)
+# Quasar App (quasar_app)
 
-UI Data management with quasar
+A Quasar Framework app
 
 ## Install the dependencies
 ```bash
@@ -12,10 +12,6 @@ npm install
 quasar dev
 ```
 
-### Lint the files
-```bash
-npm run lint
-```
 
 ### Build the app for production
 ```bash
