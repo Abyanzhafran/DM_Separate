@@ -38,7 +38,10 @@
                         >Maximize
                     </q-tooltip>
                 </q-btn>
-                <q-btn dense flat icon="close" v-close-popup>
+                <q-btn dense flat 
+                    icon="close" 
+                    v-close-popup
+                >
                     <q-tooltip content-class="bg-white text-primary">
                         Close
                     </q-tooltip>

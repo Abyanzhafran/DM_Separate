@@ -74,21 +74,29 @@ export default {
               qdrawerLinks: [
                   {
                       id: uid(),
-                      caption: "Play Demos",
-                      icon: "play_circle_outline",
+                      caption: 'Dashboard',
+                      icon: 'home',
+                      link: '/'
                   },
                   {
                       id: uid(),
-                      caption: "Make it Here",
-                      icon: "account_tree",
+                      caption: 'Play Demos',
+                      icon: 'play_circle_outline',
+                      link: '/play_demo'
+                  },
+                  {
+                      id: uid(),
+                      caption: 'Make it Here',
+                      icon: 'account_tree',
                       action: () => {
                           this.dialog = !this.dialog
                       }
                   },
                   {
                       id: uid(),
-                      caption: "Overview",
-                      icon: "dashboard",
+                      caption: 'Overview',
+                      icon: 'dashboard',
+                      link: '/overview'
                   },
               ],
         }
