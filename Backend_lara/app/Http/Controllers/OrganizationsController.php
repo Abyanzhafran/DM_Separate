@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Organization;
+use App\Models\Organization;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
 
 class OrganizationsController extends Controller
 {
@@ -16,7 +14,7 @@ class OrganizationsController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json('hello ajalah');
     }
 
     /**
@@ -43,7 +41,7 @@ class OrganizationsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Organization  $organization
+     * @param  \App\Models\Organization  $organization
      * @return \Illuminate\Http\Response
      */
     public function show(Organization $organization)
@@ -54,7 +52,7 @@ class OrganizationsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Organization  $organization
+     * @param  \App\Models\Organization  $organization
      * @return \Illuminate\Http\Response
      */
     public function edit(Organization $organization)
@@ -66,7 +64,7 @@ class OrganizationsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Organization  $organization
+     * @param  \App\Models\Organization  $organization
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Organization $organization)
@@ -77,7 +75,7 @@ class OrganizationsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Organization  $organization
+     * @param  \App\Models\Organization  $organization
      * @return \Illuminate\Http\Response
      */
     public function destroy(Organization $organization)

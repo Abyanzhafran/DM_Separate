@@ -2,17 +2,20 @@
 
 namespace Illuminate\Database\Eloquent\Relations;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Concerns\ComparesRelatedModels;
 use Illuminate\Database\Eloquent\Relations\Concerns\SupportsDefaultModels;
 
 class BelongsTo extends Relation
 {
-    use SupportsDefaultModels;
+    use ComparesRelatedModels, SupportsDefaultModels;
 
     /**
      * The child model instance of the relation.
+     *
+     * @var \Illuminate\Database\Eloquent\Model
      */
     protected $child;
 
@@ -145,7 +148,7 @@ class BelongsTo extends Relation
     /**
      * Initialize the relation on a set of models.
      *
-     * @param  array   $models
+     * @param  array  $models
      * @param  string  $relation
      * @return array
      */
@@ -161,7 +164,7 @@ class BelongsTo extends Relation
     /**
      * Match the eagerly loaded results to their parents.
      *
-     * @param  array   $models
+     * @param  array  $models
      * @param  \Illuminate\Database\Eloquent\Collection  $results
      * @param  string  $relation
      * @return array
@@ -194,17 +197,6 @@ class BelongsTo extends Relation
     }
 
     /**
-     * Update the parent model on the relationship.
-     *
-     * @param  array  $attributes
-     * @return mixed
-     */
-    public function update(array $attributes)
-    {
-        return $this->getResults()->fill($attributes)->save();
-    }
-
-    /**
      * Associate the model instance to the given parent.
      *
      * @param  \Illuminate\Database\Eloquent\Model|int|string  $model
@@ -218,7 +210,7 @@ class BelongsTo extends Relation
 
         if ($model instanceof Model) {
             $this->child->setRelation($this->relationName, $model);
-        } elseif ($this->child->isDirty($this->foreignKey)) {
+        } else {
             $this->child->unsetRelation($this->relationName);
         }
 
@@ -235,6 +227,16 @@ class BelongsTo extends Relation
         $this->child->setAttribute($this->foreignKey, null);
 
         return $this->child->setRelation($this->relationName, null);
+    }
+
+    /**
+     * Alias of "dissociate" method.
+     *
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function disassociate()
+    {
+        return $this->dissociate();
     }
 
     /**
@@ -295,7 +297,7 @@ class BelongsTo extends Relation
     protected function relationHasIncrementingId()
     {
         return $this->related->getIncrementing() &&
-                                $this->related->getKeyType() === 'int';
+            in_array($this->related->getKeyType(), ['int', 'integer']);
     }
 
     /**
@@ -340,6 +342,16 @@ class BelongsTo extends Relation
     }
 
     /**
+     * Get the key value of the child's foreign key.
+     *
+     * @return mixed
+     */
+    public function getParentKey()
+    {
+        return $this->child->{$this->foreignKey};
+    }
+
+    /**
      * Get the associated key of the relationship.
      *
      * @return string
@@ -360,22 +372,22 @@ class BelongsTo extends Relation
     }
 
     /**
-     * Get the name of the relationship.
+     * Get the value of the model's associated key.
      *
-     * @return string
+     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @return mixed
      */
-    public function getRelationName()
+    protected function getRelatedKeyFrom(Model $model)
     {
-        return $this->relationName;
+        return $model->{$this->ownerKey};
     }
 
     /**
      * Get the name of the relationship.
      *
      * @return string
-     * @deprecated The getRelationName() method should be used instead. Will be removed in Laravel 6.0.
      */
-    public function getRelation()
+    public function getRelationName()
     {
         return $this->relationName;
     }

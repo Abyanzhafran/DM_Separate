@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     name: "Demo",
     data() {
@@ -139,5 +140,20 @@ export default {
             });
         },
     },
+    // USING AXIOS
+    mounted() {
+        axios.get('http://127.0.0.1:8000/api/test', {
+            //   headers: {
+            //     'Access-Control-Allow-Origin': 'no-CORS'
+            //   }
+            }).then( function(data) {
+            console.log(data);
+        });
+        // fetch('https://randomuser.me/api/', {
+        //     mode: 'no-cors'
+        // })
+        //     .then(res => res.json())
+        //     .then(data => console.log(data))
+    }
 };
 </script>

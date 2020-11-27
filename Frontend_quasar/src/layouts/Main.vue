@@ -12,7 +12,7 @@
                         style="color: black"
                     />
                     <q-toolbar-title class="text-grey-10">
-                        <img src="~assets/Logo.png" style="width: 45px">
+                        <img src="~assets/Logo.png" style="width: 40px">
                         Data Management
                     </q-toolbar-title>
                 </q-toolbar>
