@@ -1,12 +1,14 @@
 <template>
     <!-- MAXIMIZED DIALOG FOR MAKE A STRUCTURE -->
     <q-dialog
+				ref="myDialog"
         :value="value"
         @input="$emit('input', $event)"
         persistent
         :maximized="maximizedToggle"
         transition-show="slide-up"
         transition-hide="slide-down"
+				@keyup.esc="close_dialogMakeStructure"
     >
         <q-card class="bg-teal-14 text-white">
             <q-bar>
@@ -64,24 +66,16 @@
                     <q-separator class="q-mb-lg" color="dark" inset />
 
                     <q-card-section>
-                        <!-- <q-select
-                            outlined
-                            v-model="model"
-                            class="q-mb-md"
-                            :options="options"
-                            label="Outlined"
-                            use-input
-                        /> -->
                         <q-input
                             outlined
-                            v-model="ph"
+														v-model="leadership.chairman"
                             class="q-mb-md"
                             placeholder="Chairman"
                             :dense="(dense = true)"
                         />
                         <q-input
                             outlined
-                            v-model="ph"
+														v-model="leadership.vice_chairman"
                             class="q-mb-md"
                             placeholder="Vice Chairman"
                             :dense="(dense = true)"
@@ -112,7 +106,7 @@
                     <q-card-section>
                         <div
                             v-for="(stakeholder, indexs) in stakeholders"
-                            :key="stakeholder"
+                            :key="stakeholder.id"
                             class="q-mb-md"
                         >
                             <div class="col-8 float-right">
@@ -168,7 +162,7 @@
                     <q-card-section>
                         <div
                             v-for="(division, index) in divisions"
-                            :key="division"
+                            :key="division.id"
                             class="q-mb-md"
                         >
                             <div class="col-8 float-right">
@@ -205,6 +199,7 @@
                     class="float-right q-mb-md"
                     color="primary"
                     label="Save"
+                    @click="save"
                 />
 
                 <!-- END OF CARD -->
@@ -216,6 +211,7 @@
 
 <script>
 import { event, uid } from "quasar";
+import axios from 'axios';
 
 export default {
     name: 'DialogMakeStructure',
@@ -236,8 +232,15 @@ export default {
         textareaModel: "",
 
         inputFillCancelled: false,
-        textareaFillCancelled: true,
-
+				textareaFillCancelled: true,
+				
+				leadership: [
+					{
+							id: uid(),
+							chairman: null,
+							vice_chairman: null
+					}
+				],
         stakeholders: [
             {
                 id: uid(),
@@ -274,8 +277,20 @@ export default {
         },
         deleteDivisionModal(index) {
             this.divisions.splice(index, 1)
-        }
-    },
+				},
+				close_dialogMakeStructure() {
+						this.$refs.myDialog.hide()
+				},
+				// POST data
+				save() {
+					axios.post('http://127.0.0.1:8000/api/save', {
+						data: this.stakeholders
+					})
+					.then(function(res) {
+						console.log(res.data);
+					})
+				}
+		}
 };
 </script>
 

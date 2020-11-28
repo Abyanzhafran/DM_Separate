@@ -21,3 +21,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('test', function () {
     return response()->json('dsadasad');
 });
+
+Route::post('/save', function(Request $request) {
+    return response()->json([
+        'message' => 'data diterima',
+        'input' => $request->all()
+    ]);
+});
+
