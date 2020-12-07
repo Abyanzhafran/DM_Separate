@@ -75,7 +75,7 @@
                         />
                         <q-input
                             outlined
-														v-model="leadership.vice_chairman"
+							v-model="leadership.vice_chairman"
                             class="q-mb-md"
                             placeholder="Vice Chairman"
                             :dense="(dense = true)"
@@ -280,15 +280,17 @@ export default {
 				},
 				close_dialogMakeStructure() {
 						this.$refs.myDialog.hide()
-				},
+                },
+                //REQUEST data
+
 				// POST data
 				save() {
-					axios.post('http://127.0.0.1:8000/api/save', {
+					axios.post('http://127.0.0.1:8000/api/test', {
 						data: this.stakeholders
 					})
-					.then(function(res) {
-						console.log(res.data);
-					})
+					 .then(function(res) {
+					 	console.log(res.data);
+					 })
 				}
 		}
 };
