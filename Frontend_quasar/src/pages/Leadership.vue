@@ -6,7 +6,7 @@
         <q-card class="my-card column float-left cus-size" @click="save_alt">
           <q-card-section>
             <div class="text-h5">
-              <a href="#" class="black cus-card">Maintain Program</a>
+              <a href="#" class="black cus-card">Maintain all Things</a>
               <q-btn flat round class="float-right" icon="more_vert"/>              
               <hr class="cus-bold q-mt-xl"/>
             </div>

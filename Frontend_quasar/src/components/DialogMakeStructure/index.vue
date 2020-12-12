@@ -1,14 +1,14 @@
 <template>
     <!-- MAXIMIZED DIALOG FOR MAKE A STRUCTURE -->
     <q-dialog
-				ref="myDialog"
+		ref="myDialog"
         :value="value"
         @input="$emit('input', $event)"
         persistent
         :maximized="maximizedToggle"
         transition-show="slide-up"
         transition-hide="slide-down"
-				@keyup.esc="close_dialogMakeStructure"
+		@keyup.esc="close_dialogMakeStructure"
     >
         <q-card class="bg-teal-14 text-white">
             <q-bar>

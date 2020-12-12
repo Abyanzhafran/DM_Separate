@@ -15,13 +15,13 @@
                     <q-toolbar-title class="text-grey-10 text-bold">
                         Assignment
                     </q-toolbar-title>
+                    <q-tabs v-model="tab" class="absolute-center">
+                        <q-tab class="cus-color" name="assignment" label="Assignment"/>
+                        <q-tab class="cus-color" name="work" label="work" />
+                        <q-tab class="cus-color" name="people" label="people" />
+                    </q-tabs>
                 </q-toolbar>
                 
-                <q-tabs v-model="tab">
-                    <q-tab class="cus-color" name="assignment" label="Assignment"/>
-                    <q-tab class="cus-color" name="work" label="work" />
-                    <q-tab class="cus-color" name="people" label="people" />
-                </q-tabs>
             </q-header>
 
             <q-drawer
@@ -60,9 +60,6 @@
                 </q-scroll-area>
             </q-drawer>
 
-            <!-- DIALOG MODAL -->
-            <dialog-make-structure v-model="dialog" />
-
             <q-page-container>
                 <router-view />
             </q-page-container>
@@ -71,7 +68,6 @@
 </template>
 
 <script>
-import DialogMakeStructure from "components/DialogMakeStructure";
 import CustomLink from "components/CustomLink";
 import { uid } from "quasar";
 
@@ -80,7 +76,6 @@ export default {
     data() {
         return {
               tab:'assignment',
-              dialog: false,
               drawer: true,
               qdrawerLinks: [
                   {
@@ -105,8 +100,7 @@ export default {
         }
     },
     components: {
-        CustomLink,
-        DialogMakeStructure
+        CustomLink
     },
 };
 </script>
