@@ -1,7 +1,8 @@
 <template>
     <div class="q-pa-md">
-        <q-layout view="hHh Lpr lff">
-            <q-header elevated class="bg-teal-14">
+    	 <q-layout view="hHh Lpr lff" >
+             <q-header elevated class="bg-white">  <!--bg-teal-14 -->
+
                 <q-toolbar>
                     <q-btn
                         flat
@@ -9,9 +10,18 @@
                         round
                         dense
                         icon="menu"
+                        style="color: black"
                     />
-                    <q-toolbar-title>Data Management</q-toolbar-title>
+                    <q-toolbar-title class="text-grey-10 text-bold">
+                        Assignment
+                    </q-toolbar-title>
                 </q-toolbar>
+                
+                <q-tabs v-model="tab">
+                    <q-tab class="cus-color" name="assignment" label="Assignment"/>
+                    <q-tab class="cus-color" name="work" label="work" />
+                    <q-tab class="cus-color" name="people" label="people" />
+                </q-tabs>
             </q-header>
 
             <q-drawer
@@ -30,13 +40,13 @@
                         </div>
                         <div class="q-pl-lg q-pb-md">
                             <q-btn
-                                color="primary"
-                                icon="add_box"
-                                label="Add Unit"
+                                color='primary'
+                                icon='add_box'
+                                label='Add Unit'
                             />
                         </div>
                         <div>
-                            <q-icon size="xl" name="leader" />
+                            <q-icon size='lg' name='leader' />
                         </div>
 
                         <!-- ITEM USING PROPS -->
@@ -69,34 +79,27 @@ export default {
     name: "Main",
     data() {
         return {
-            dialog: false,
+              tab:'assignment',
+              dialog: false,
               drawer: true,
               qdrawerLinks: [
                   {
                       id: uid(),
-                      caption: 'Dashboard',
-                      icon: 'home',
-                      link: '/'
+                      caption: 'Leadership',
+                      icon: 'how_to_reg',
+                      link: '#'
                   },
                   {
                       id: uid(),
-                      caption: 'Play Demos',
-                      icon: 'play_circle_outline',
-                      link: '/play_demo'
+                      caption: 'Stakeholders',
+                      icon: 'supervisor_account',
+                      link: '##'
                   },
                   {
                       id: uid(),
-                      caption: 'Make it Here',
-                      icon: 'account_tree',
-                      action: () => {
-                          this.dialog = !this.dialog
-                      }
-                  },
-                  {
-                      id: uid(),
-                      caption: 'Overview',
-                      icon: 'dashboard',
-                      link: '/overview'
+                      caption: 'Divisions',
+                      icon: 'widgets',
+                      link: "###"
                   },
               ],
         }
@@ -113,4 +116,11 @@ export default {
     flex: 1 0 100% !important;
     height: 0 !important;
 }
+.cus-size {
+    font-size: 15px;
+}
+.cus-color {
+    color: black;
+}
+
 </style>

@@ -1,4 +1,5 @@
 const routes = [
+  // MAIN_PAGE
   {
     path: '/',
     component: () => import('layouts/Main.vue'),
@@ -8,11 +9,21 @@ const routes = [
       { path: '/overview', component: () => import('pages/Overview.vue') }
     ]
   },
+  // MAKE an Assignment's Page
   {
-    path: '/employee',
-    component: () => import('layouts/Main_employee.vue'),
+    path: '/assignment',
+    component: () => import('layouts/MainAssignment.vue'),
     children: [
-      { path: '/', component: () => import('pages/dashboard.vue') }
+      { path: '/', component: () => import('pages/Leadership.vue') }
+    ]
+  },
+  {
+    path: '/front',
+    component: () => import('layouts/MainFront.vue'),
+    children: [
+      { path: '/front/login', component: () => import('pages/Login.vue') },
+      { path: '/front/welcome', component: () => import('pages/Welcome.vue') },
+
     ]
   },
   // Always leave this as last one,

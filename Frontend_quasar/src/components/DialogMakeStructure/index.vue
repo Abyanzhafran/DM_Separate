@@ -68,7 +68,7 @@
                     <q-card-section>
                         <q-input
                             outlined
-														v-model="leadership.chairman"
+						    v-model="leadership.chairman"
                             class="q-mb-md"
                             placeholder="Chairman"
                             :dense="(dense = true)"
@@ -234,13 +234,13 @@ export default {
         inputFillCancelled: false,
 				textareaFillCancelled: true,
 				
-				leadership: [
-					{
-							id: uid(),
-							chairman: null,
-							vice_chairman: null
-					}
-				],
+        leadership: [
+        	{
+        		id: uid(),
+        		chairman: null,
+        		vice_chairman: null
+        	}
+		],
         stakeholders: [
             {
                 id: uid(),

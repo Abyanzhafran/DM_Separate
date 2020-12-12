@@ -12,9 +12,17 @@
                         style="color: black"
                     />
                     <q-toolbar-title class="text-grey-10">
-                        <img src="~assets/Logo.png" style="width: 40px">
+                        <img src="~assets/Bersamabisa_Logo.png" style="width: 40px">
                         Data Management
                     </q-toolbar-title>
+                    <q-btn outline color="primary" label="Assignment" class="float-right" icon="corporate_fare">
+                        <q-tooltip 
+                            content-class="bg-amber text-black"
+                            content-style="font-size: 16px"
+                        >
+                            Make an Assignment
+                        </q-tooltip>
+                    </q-btn>
                 </q-toolbar>
             </q-header>
 
@@ -40,7 +48,7 @@
                             />
                         </div>
                         <div>
-                            <q-icon size="xl" name="leader" />
+                            <q-icon size='lg' name="leader" />
                         </div>
 
                         <!-- ITEM USING PROPS -->
