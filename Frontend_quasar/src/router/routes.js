@@ -26,6 +26,13 @@ const routes = [
 
     ]
   },
+  {
+    path: '/access',
+    component: () => import('layouts/userAccessLayouts/MainUserAccess.vue'),
+    children: [
+       { path: '/access/leadership', component: () => import('pages/userAccess/LeadershipAccess.vue') }
+    ]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {

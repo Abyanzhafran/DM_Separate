@@ -232,7 +232,7 @@ export default {
         textareaModel: "",
 
         inputFillCancelled: false,
-				textareaFillCancelled: true,
+	    textareaFillCancelled: true,
 				
         leadership: [
         	{

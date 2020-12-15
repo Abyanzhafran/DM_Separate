@@ -20,6 +20,9 @@
                         <q-tab class="cus-color" name="work" label="work" />
                         <q-tab class="cus-color" name="people" label="people" />
                     </q-tabs>
+                    <div class="absolute-right q-pt-sm q-pr-md"> 
+                        <q-btn icon="add" flat round dense style="color: black"/>
+                    </div> 
                 </q-toolbar>
                 
             </q-header>
@@ -72,7 +75,7 @@ import CustomLink from "components/CustomLink";
 import { uid } from "quasar";
 
 export default {
-    name: "Main",
+    name: 'Main',
     data() {
         return {
               tab:'assignment',

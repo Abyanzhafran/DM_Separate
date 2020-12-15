@@ -3,10 +3,10 @@
     <div class="row q-pt-lg justify-left">
 
       <div class="q-pa-md" v-for="count in 2" :key="count">
-        <q-card class="my-card column float-left cus-size" @click="save_alt">
+        <q-card class="my-card column float-left cus-size">
           <q-card-section>
             <div class="text-h5">
-              <a href="#" class="black cus-card">Maintain all Things</a>
+              <a href="/access" class="black cus-card">Maintain all Things</a>
               <q-btn flat round class="float-right" icon="more_vert"/>              
               <hr class="cus-bold q-mt-xl"/>
             </div>
