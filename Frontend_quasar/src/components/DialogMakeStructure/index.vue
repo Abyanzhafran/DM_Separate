@@ -210,7 +210,7 @@
 </template>
 
 <script>
-import { event, uid } from "quasar";
+import { event, uid } from 'quasar';
 import axios from 'axios';
 
 export default {
