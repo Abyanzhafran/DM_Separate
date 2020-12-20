@@ -14,7 +14,8 @@ const routes = [
     path: '/assignment',
     component: () => import('layouts/MainAssignment.vue'),
     children: [
-      { path: '/', component: () => import('pages/Leadership.vue') }
+      { path: '/assignment/leadership', component: () => import('pages/assignment/Leadership.vue') },
+      { path: '/assignment/event', component: () => import('pages/Event.vue') }
     ]
   },
   {

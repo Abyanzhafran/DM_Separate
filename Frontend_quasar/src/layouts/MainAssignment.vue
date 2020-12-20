@@ -32,7 +32,7 @@
                 :width="200"
                 :breakpoint="500"
                 bordered
-                content-class="bg-grey-3"
+                content-class="bg-grey-2"
             >
                 <q-scroll-area class="fit">
                     <q-list>
@@ -85,7 +85,7 @@ export default {
                       id: uid(),
                       caption: 'Leadership',
                       icon: 'how_to_reg',
-                      link: '#'
+                      link: '/assignment/leadership'
                   },
                   {
                       id: uid(),
@@ -98,6 +98,12 @@ export default {
                       caption: 'Divisions',
                       icon: 'widgets',
                       link: "###"
+                  },
+                  {
+                      id: uid(),
+                      caption: 'Event',
+                      icon: 'event_note',
+                      link: '/assignment/event'
                   },
               ],
         }
@@ -119,5 +125,4 @@ export default {
 .cus-color {
     color: black;
 }
-
 </style>

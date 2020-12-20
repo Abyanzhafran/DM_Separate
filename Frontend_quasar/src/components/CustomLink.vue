@@ -1,5 +1,5 @@
 <template>
-    <q-item exact clickable v-ripple :to='link' @click="action">
+    <q-item exact clickable v-ripple :to='link' @click="action" active-class="cus-menu-active">
         <q-item-section v-if="icon" avatar>
             <q-icon :name="icon" />
         </q-item-section>
@@ -39,3 +39,8 @@ export default {
 };
 </script>
 
+<style lang="css">
+.cus-menu-active {
+  background: #ccffff;
+}
+</style>

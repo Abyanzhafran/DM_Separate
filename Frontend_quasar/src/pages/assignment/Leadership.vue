@@ -3,10 +3,10 @@
     <div class="row q-pt-lg justify-left">
 
       <div class="q-pa-md" v-for="count in 2" :key="count">
-        <q-card class="my-card column float-left cus-size">
+        <q-card class="my-card float-left cus-size">
           <q-card-section>
             <div class="text-h5">
-              <a href="/access" class="black cus-card">Maintain all Things</a>
+              <a href="/#/access/leadership" class="cus-card">Maintain all Things</a>
               <q-btn flat round class="float-right" icon="more_vert"/>              
               <hr class="cus-bold q-mt-xl"/>
             </div>
@@ -27,28 +27,14 @@
         </q-card>
       </div>
 
+
     </div>
   </q-page>
 </template>
 
 <script>
 export default {
-  name: 'PageIndex',
-  data: () => ({
-    label: 'Write here',
-    edit: [
-      {
-        chairmanEdit: 'something'
-      }
-    ]
-  }),
-  methods: {
-    cardEdit() {
-      action: () => {
-        this.chairmanEdit
-      }
-    }
-  }
+  name: 'PageIndex'
 }
 </script>
 
@@ -63,7 +49,5 @@ export default {
   }
   .cus-card {
     text-decoration: none;
-    font-family: arial;
-    font-weight: 500;
   }
 </style>

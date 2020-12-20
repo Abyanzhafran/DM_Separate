@@ -1,30 +1,27 @@
 <template>
-    <div class="q-pa-md">
-    	 <q-layout view="hHh Lpr lff" >
-             <q-header elevated class="bg-white">  <!--bg-teal-14 -->
-
-                <q-toolbar>
-                    <q-btn
-                        flat
-                        dense
-                        icon="home"
-                        style="color: black"
-                    />
-                    <q-toolbar-title class="text-grey-10 text-bold absolute-center">
-                        Leadership access
-                    </q-toolbar-title>
-                    <div class="absolute-right q-pt-sm q-pr-md"> 
-                        <q-btn icon="add" flat round dense style="color: black"/>
-                    </div> 
-                </q-toolbar>
-                
-            </q-header>
-
-            <q-page-container>
-                <router-view />
-            </q-page-container>
-        </q-layout>
-    </div>
+    <q-layout view="hHh Lpr lff" style="max-height: 550px">
+         <q-header elevated class="bg-white">  <!--bg-teal-14 -->
+         
+            <q-toolbar>
+                <q-btn
+                    flat
+                    dense
+                    icon="home"
+                    style="color: black"
+                />
+                <q-toolbar-title class="text-grey-10 text-bold absolute-center">
+                    Leadership access
+                </q-toolbar-title>
+                <div class="absolute-right q-pt-sm q-pr-md"> 
+                    <q-btn icon="add" flat round dense style="color: black"/>
+                </div> 
+            </q-toolbar>
+            
+        </q-header>
+        <q-page-container>
+            <router-view />
+        </q-page-container>
+    </q-layout>
 </template>
 
 <script>

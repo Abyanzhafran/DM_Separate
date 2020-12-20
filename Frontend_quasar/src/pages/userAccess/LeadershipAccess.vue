@@ -1,5 +1,5 @@
 <template>
-  <q-page padding>
+  
     <div class="row q-pt-lg justify-left">
 
       <div>
@@ -35,15 +35,26 @@
       <div>
         <q-card flat bordered class="my-card cus-card q-ml-sm">
          <q-linear-progress size="15px" :value="progress" color="red"/>  
-          <q-card-section>
-            <div class="q-pb-md cus-list">Urgent</div>
-            <q-card class="my-card q-mb-sm" v-for='count in 4' :key='count'>
-              <q-card-section class="bg-white">
-                <div class="text-h6">Our Changing Planet</div>
-                <div class="text-subtitle2">by John wick</div>
+              <q-card-section>
+                <div class="q-pb-none cus-list">
+                  Urgent
+                  <q-btn flat class="float-right text-bold"> 7.30PM</q-btn>
+                </div>
               </q-card-section>
-            </q-card>
-          </q-card-section>
+            <q-scroll-area 
+              :thumb-style="thumbStyle"
+              :bar-style="barStyle"
+              style="height: 470px; width: 254.89px;"
+            >
+              <q-card-section>
+                <q-card class="my-card q-mb-sm" v-for='count in 6' :key='count'>
+                  <q-card-section class="bg-white">
+                    <div class="text-h6">Our Changing Planet</div>
+                    <div class="text-subtitle2">by John wick</div>
+                  </q-card-section>
+                </q-card>
+              </q-card-section>
+            </q-scroll-area> 
         </q-card>
       </div>
 
@@ -62,17 +73,23 @@
         </q-card>
       </div>
     </div>
-  </q-page>
+  
 </template>
 
 <script>
-import uid from 'quasar';
+import { uid, scroll } from 'quasar';
+const { getScrollPosition, setScrollPosition } = scroll
 
 export default {
   name: 'PageIndex',
   data: () => ({
     progress: 1.0
-  })
+  }),
+  methods: {
+    // auto_height() {
+    //   if (this.number > )
+    // }
+  }
 }
 </script>
 
@@ -83,5 +100,6 @@ export default {
 .cus-list {
   font-size: 18px;
   font-weight: 500;
+  max-height: 500px;
 }
 </style>
