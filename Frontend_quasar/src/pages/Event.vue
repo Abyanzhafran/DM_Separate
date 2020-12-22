@@ -2,8 +2,8 @@
   <q-page padding>
     <div class="row q-pt-lg justify-left">
 
-      <div class="q-pa-md" v-for="count in 2" :key="count">
-        <q-card class="my-card float-left cus-size" flat bordered>
+      <div class="q-pa-md" v-for="n in 2" :key="n">
+        <q-card class="my-card float-left cus-size-1" flat bordered>
           <q-card-section horizontal class="q-pb-xl bg-cyan-3">
             <q-card-section class="q-pt-xs">
               <div class="text-overline">Overline</div>
@@ -12,7 +12,6 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </div>
             </q-card-section>
-
           </q-card-section>
     
           <q-separator/>
@@ -46,7 +45,7 @@ export default {
     height: 2px;
     background-color: black;
   }
-  .cus-size {
+  .cus-size-1 {
     width: 350px; 
     height: 257px;
   }
