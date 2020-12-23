@@ -33,42 +33,53 @@
       </div>
 
       <div>
-       <q-card flat bordered class="my-card cus-card q-ml-sm">
+        <q-card flat bordered class="my-card cus-card q-ml-sm">
          <q-linear-progress size="15px" :value="progress" color="red"/>  
+            <q-card-section>
+              <div class="q-pb-none cus-list">
+                Urgent
+                <q-btn flat class="float-right text-bold"> 7.30PM</q-btn>
+              </div>
+            </q-card-section>
+
+            <div class="scroll oveflow-hidden" style="max-height: 470px; max-width: 258px">
               <q-card-section>
-                <div class="q-pb-none cus-list">
-                  Urgent
-                  <q-btn flat class="float-right text-bold"> 7.30PM</q-btn>
-                </div>
-              </q-card-section>
-              
-              <div class="scroll oveflow-hidden" style="max-height: 470px; max-width: 258px">
-                <q-card-section>
-                  <q-card class="my-card q-mb-sm" v-for='count in 6' :key='count'>
-                    <q-card-section class="bg-white">
+                <q-card class="my-card q-mb-sm" v-for='listUrgent in listUrgents' :key='listUrgent.id'>
+                  <q-card-section class="bg-white">
                       <div class="text-h6">Our Changing Planet</div>
                       <div class="text-subtitle2">by John wick</div>
-                    </q-card-section>
-                  </q-card>
-                </q-card-section>
-              </div>
+                  </q-card-section>
+                </q-card>
+                <q-btn flat icon='add' label='Add Card' @click='addCardUrgent' />
+              </q-card-section>
+            </div>
         </q-card>
-      </div>
+      </div> 
 
       <div>
         <q-card flat bordered class="my-card cus-card q-ml-sm">
          <q-linear-progress size="15px" :value="progress" color="green"/>  
-          <q-card-section>
-            <div class="q-pb-md cus-list">Done</div>
-            <q-card class="my-card q-mb-sm" v-for='count in 2' :key='count'>
-              <q-card-section class="bg-white">
-                <div class="text-h6">Our Changing Planet</div>
-                <div class="text-subtitle2">by John wick</div>
+            <q-card-section>
+              <div class="q-pb-none cus-list">
+                Done
+                <q-btn flat class="float-right text-bold"> 7.30PM</q-btn>
+              </div>
+            </q-card-section>
+
+            <div class="scroll oveflow-hidden" style="max-height: 470px; max-width: 258px">
+              <q-card-section>
+                <q-card class="my-card q-mb-sm" v-for='listDone in listDones' :key='listDone.id'>
+                  <q-card-section class="bg-white">
+                      <div class="text-h6">Our Changing Planet</div>
+                      <div class="text-subtitle2">by John wick</div>
+                  </q-card-section>
+                </q-card>
+                <q-btn flat icon='add' label='Add Card' @click='addCardDone' />
               </q-card-section>
-            </q-card>
-          </q-card-section>
+            </div>
         </q-card>
-      </div>
+      </div> 
+      
     </div>
   
 </template>
@@ -80,12 +91,31 @@ const { getScrollPosition, setScrollPosition } = scroll
 export default {
   name: 'PageIndex',
   data: () => ({
-    progress: 1.0
+      progress: 1.0,
+
+      listDones: [
+        {
+          id: uid()
+        }
+      ],
+      listUrgents: [
+        {
+          id: uid()
+        }
+      ]
+
   }),
   methods: {
-    // auto_height() {
-    //   if (this.number > )
-    // }
+      addCardDone() {
+        this.listDones.push({
+          id: uid()
+        });
+      },
+      addCardUrgent() {
+        this.listUrgents.push({
+          id: uid()
+        });
+      }
   }
 }
 </script>

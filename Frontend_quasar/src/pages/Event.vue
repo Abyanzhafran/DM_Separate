@@ -3,7 +3,7 @@
     <div class="row q-pt-lg justify-left">
 
       <div class="q-pa-md" v-for="n in 2" :key="n">
-        <q-card class="my-card float-left cus-size-1" flat bordered>
+        <q-card class="my-card float-left cus-size-evnt" flat bordered>
           <q-card-section horizontal class="q-pb-xl bg-cyan-3">
             <q-card-section class="q-pt-xs">
               <div class="text-overline">Overline</div>
@@ -45,7 +45,7 @@ export default {
     height: 2px;
     background-color: black;
   }
-  .cus-size-1 {
+  .cus-size-evnt {
     width: 350px; 
     height: 257px;
   }

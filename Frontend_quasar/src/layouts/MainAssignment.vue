@@ -91,7 +91,7 @@ export default {
                       id: uid(),
                       caption: 'Stakeholders',
                       icon: 'supervisor_account',
-                      link: '##'
+                      link: '/assignment/stakeholder'
                   },
                   {
                       id: uid(),

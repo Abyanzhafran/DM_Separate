@@ -1,14 +1,14 @@
 <template>
     <!-- MAXIMIZED DIALOG FOR MAKE A STRUCTURE -->
     <q-dialog
-		ref="myDialog"
+		    ref="myDialog"
         :value="value"
         @input="$emit('input', $event)"
         persistent
         :maximized="maximizedToggle"
         transition-show="slide-up"
         transition-hide="slide-down"
-		@keyup.esc="close_dialogMakeStructure"
+		    @keyup.esc="close_dialogMakeStructure"
     >
         <q-card class="bg-teal-14 text-white">
             <q-bar>
@@ -55,6 +55,7 @@
             </q-card-section>
 
             <q-card-section class="q-pt-none">
+
                 <!-- CARD FOR STRUCTURE -->
                 <q-card class="bg-white-9 my-card q-mb-md">
                     <q-card-section>
@@ -68,14 +69,14 @@
                     <q-card-section>
                         <q-input
                             outlined
-						    v-model="leadership.chairman"
+						                v-model="leadership.chairman"
                             class="q-mb-md"
                             placeholder="Chairman"
                             :dense="(dense = true)"
                         />
                         <q-input
                             outlined
-							v-model="leadership.vice_chairman"
+						                v-model="leadership.vice_chairman"
                             class="q-mb-md"
                             placeholder="Vice Chairman"
                             :dense="(dense = true)"
@@ -232,7 +233,7 @@ export default {
         textareaModel: "",
 
         inputFillCancelled: false,
-	    textareaFillCancelled: true,
+	      textareaFillCancelled: true,
 				
         leadership: [
         	{
@@ -240,7 +241,7 @@ export default {
         		chairman: null,
         		vice_chairman: null
         	}
-		],
+		    ],
         stakeholders: [
             {
                 id: uid(),

@@ -7,7 +7,7 @@
 
           <q-card-section>
             <div class="text-h5">
-              <a href="/#/access/leadership" class="cus-card">Maintain all Things</a>
+              <a href="/#/access/leadership" class="cus-card">Event Controller</a>
               <q-btn flat round class="float-right" icon="more_vert"/>              
               <q-separator class="q-mt-xl" color="black" size="2px"/>
             </div>
@@ -16,7 +16,7 @@
             </div>
               <q-btn round class="float-right q-mt-sm">
                 <q-avatar size="75px">
-                  <img src="~assets/iyaak_1.jpg">
+                  <img src="~assets/mountain.jpg">
                 </q-avatar>
               </q-btn>
           </q-card-section>
