@@ -3,7 +3,7 @@
     <div class="row q-pt-lg justify-left">
 
       <div>
-        <q-card flat bordered class="my-card cus-card q-ml-sm">
+        <q-card flat bordered class="my-card cus-card-acc q-ml-sm">
          <q-linear-progress size="15px" :value="progress" />  
           <q-card-section>
             <div class="q-pb-md cus-list">Current Project</div>
@@ -18,7 +18,7 @@
       </div>
 
       <div>
-        <q-card flat bordered class="my-card cus-card q-ml-sm">
+        <q-card flat bordered class="my-card cus-card-acc q-ml-sm">
          <q-linear-progress size="15px" :value="progress" color="warning"/>  
           <q-card-section>
             <div class="q-pb-md cus-list">Up Next</div>
@@ -33,7 +33,7 @@
       </div>
 
       <div>
-        <q-card flat bordered class="my-card cus-card q-ml-sm">
+        <q-card flat bordered class="my-card cus-card-acc q-ml-sm">
          <q-linear-progress size="15px" :value="progress" color="red"/>  
             <q-card-section>
               <div class="q-pb-none cus-list">
@@ -57,7 +57,7 @@
       </div> 
 
       <div>
-        <q-card flat bordered class="my-card cus-card q-ml-sm">
+        <q-card flat bordered class="my-card cus-card-acc q-ml-sm">
          <q-linear-progress size="15px" :value="progress" color="green"/>  
             <q-card-section>
               <div class="q-pb-none cus-list">
@@ -68,31 +68,43 @@
 
             <div class="scroll oveflow-hidden" style="max-height: 470px; max-width: 258px">
               <q-card-section>
-                <q-card class="my-card q-mb-sm" v-for='listDone in listDones' :key='listDone.id'>
-                  <q-card-section class="bg-white">
-                      <div class="text-h6">Our Changing Planet</div>
+
+                  <q-card class="my-card q-mb-sm" v-for='listDone in listDones' :key='listDone.id' 
+                    @click='addDialogCard' v-ripple clickable
+                  > 
+                    <q-card-section class="bg-white cus-card-hov">
+                      <div class="text-h6">Our Changing planet</div>
                       <div class="text-subtitle2">by John wick</div>
-                  </q-card-section>
-                </q-card>
+                    </q-card-section>
+                  </q-card>
+              
                 <q-btn flat icon='add' label='Add Card' @click='addCardDone' />
+                
               </q-card-section>
             </div>
         </q-card>
-      </div> 
+      </div>
+
+      <!-- ALL COMPONENTS -->
+      <!-- Dialog Card Access -->
+      <dialog-card-access v-model='medium' /> 
+
       
     </div>
   
 </template>
 
 <script>
+import DialogCardAccess from 'components/DialogCardAccess';
 import { uid, scroll } from 'quasar';
 const { getScrollPosition, setScrollPosition } = scroll
 
 export default {
-  name: 'PageIndex',
+  name: 'LeadershipAccess',  
   data: () => ({
+      // DIALOG Medium
+      medium: false,
       progress: 1.0,
-
       listDones: [
         {
           id: uid()
@@ -102,8 +114,7 @@ export default {
         {
           id: uid()
         }
-      ]
-
+      ] 
   }),
   methods: {
       addCardDone() {
@@ -115,13 +126,19 @@ export default {
         this.listUrgents.push({
           id: uid()
         });
+      },
+      addDialogCard() {
+        this.medium = !this.medium
       }
+  },
+  components: {
+    DialogCardAccess
   }
 }
 </script>
 
 <style lang="css">
-  .cus-card {
+  .cus-card-acc {
     background-color: lightgrey;
   }
 
@@ -130,6 +147,7 @@ export default {
     font-weight: 500;
     max-height: 500px;
   }
+
   /* Styling SCROLL */
   /* width */
   ::-webkit-scrollbar {
@@ -151,5 +169,10 @@ export default {
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #555; 
+  }
+
+  /* STYLING CARD HOVER */
+  .cus-card-hov:hover{
+    text-decoration: underline;
   }
 </style>
