@@ -27,10 +27,12 @@ import { event, uid } from 'quasar';
 
 export default {
     name: 'Editor',
+    editor: 'Write Something',
     props: {
       value: {
         type: String,
         required: true,
+        editor: 'Write something'
       },
     },
     data: () => ({
@@ -54,6 +56,7 @@ export default {
             icon: 'warning'
           })
         }
+      
     }
 }
 </script>
