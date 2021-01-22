@@ -35,7 +35,9 @@
             >
                 <q-scroll-area class="fit">
                     <q-list>
-                        <div class="text-h5 text-weight-bold text-center q-py-md">
+                        <div
+                            class="text-h5 text-weight-bold text-center q-py-md"
+                        >
                             Main Work
                         </div>
                         <div class="q-pl-lg q-pb-md">
@@ -61,7 +63,7 @@
             </q-drawer>
 
             <!-- DIALOG MODAL -->
-            <dialog-make-structure v-model='dialog' />
+            <dialog-make-structure v-model="dialog" />
 
             <q-page-container>
                 <router-view />
@@ -71,15 +73,15 @@
 </template>
 
 <script>
-import DialogMakeStructure from 'components/DialogMakeStructure';
-import CustomLink from 'components/CustomLink';
-import { uid } from 'quasar';
+import DialogMakeStructure from "components/DialogMakeStructure";
+import CustomLink from "components/CustomLink";
+import { uid } from "quasar";
 
 export default {
     name: "Main",
     data() {
         return {
-              dialog: false,
+            dialog: false,
               drawer: true,
               qdrawerLinks: [
                   {

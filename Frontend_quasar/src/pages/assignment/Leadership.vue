@@ -7,11 +7,9 @@
 
           <q-card-section>
             <div class="text-h5">
-              <a href="/#/access/leadership" class="cus-card-led">Maintain all Things</a>
+              <a href="/#/access/leadership" class="cus-card">Maintain all Things</a>
               <q-btn flat round class="float-right" icon="more_vert"/>              
-
               <q-separator class="q-mt-xl" color="black" size="2px"/>
-              
             </div>
             <div class="q-mt-md">
               Nama oraaang
@@ -38,7 +36,7 @@
 
 <script>
 export default {
-  name: 'Leadership'
+  name: 'PageIndex'
 }
 </script>
 
@@ -51,7 +49,7 @@ export default {
     width: 302px; 
     height: 296px;
   }
-  .cus-card-led {
+  .cus-card {
     text-decoration: none;
   }
 </style>
