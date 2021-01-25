@@ -12,7 +12,7 @@
               <q-separator class="q-mt-xl" color="black" size="2px"/>
             </div>
             <div class="q-mt-md">
-              Nama orang
+              Iyaak
             </div>
               <q-btn round class="float-right q-mt-sm">
                 <q-avatar size="75px">
