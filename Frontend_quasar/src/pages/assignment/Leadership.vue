@@ -7,7 +7,7 @@
 
           <q-card-section>
             <div class="text-h5">
-              <a href="/#/access/leadership" class="cus-card">Maintain all Things</a>
+              <a href="/#/access/leadership" class="cus-card-lead">Maintain all Things</a>
               <q-btn flat round class="float-right" icon="more_vert"/>              
               <q-separator class="q-mt-xl" color="black" size="2px"/>
             </div>
@@ -49,7 +49,7 @@ export default {
     width: 302px; 
     height: 296px;
   }
-  .cus-card {
+  .cus-card-lead {
     text-decoration: none;
   }
 </style>

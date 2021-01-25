@@ -4,7 +4,7 @@ const routes = [
     path: '/',
     component: () => import('layouts/Main.vue'),
     children: [
-      { path: '/', component: () => import('pages/Dashboard.vue') },
+      // { path: '/', component: () => import('pages/Dashboard.vue') },
       { path: '/play_demo', component: () => import('pages/play_demo.vue') },
       { path: '/overview', component: () => import('pages/Overview.vue') }
     ]
@@ -20,11 +20,10 @@ const routes = [
     ]
   },
   {
-    path: '/front',
+    path: '/bersamabisa',
     component: () => import('layouts/MainFront.vue'),
     children: [
-      { path: '/front/login', component: () => import('pages/Login.vue') },
-      { path: '/front/welcome', component: () => import('pages/Welcome.vue') },
+      { path: '/bersamabisa/signup', component: () => import('pages/SignUp.vue') },
 
     ]
   },
