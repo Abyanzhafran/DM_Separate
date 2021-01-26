@@ -6,8 +6,8 @@ const routes = [
     children: [
       // { path: '/', component: () => import('pages/Dashboard.vue') },
       { path: '/play_demo', component: () => import('pages/play_demo.vue') },
-      { path: '/overview', component: () => import('pages/Overview.vue') }
-    ]
+      { path: '/overview', component: () => import('pages/Overview.vue') },
+    ],
   },
   // MAKE an Assignment's Page
   {
@@ -16,8 +16,8 @@ const routes = [
     children: [
       { path: '/assignment/leadership', component: () => import('pages/assignment/Leadership.vue') },
       { path: '/assignment/stakeholder', component: () => import('pages/assignment/Stakeholder.vue') },
-      { path: '/assignment/event', component: () => import('pages/Event.vue') }
-    ]
+      { path: '/assignment/event', component: () => import('pages/Event.vue') },
+    ],
   },
   {
     path: '/bersamabisa',
@@ -25,21 +25,21 @@ const routes = [
     children: [
       { path: '/bersamabisa/signup', component: () => import('pages/SignUp.vue') },
 
-    ]
+    ],
   },
   {
     path: '/access',
     component: () => import('layouts/userAccessLayouts/MainUserAccess.vue'),
     children: [
-       { path: '/access/leadership', component: () => import('pages/userAccess/LeadershipAccess.vue') }
-    ]
+      { path: '/access/leadership', component: () => import('pages/userAccess/LeadershipAccess.vue') },
+    ],
   },
   // Always leave this as last one,
   // but you can also remove it
   {
     path: '*',
-    component: () => import('pages/Error404.vue')
-  }
-]
+    component: () => import('pages/Error404.vue'),
+  },
+];
 
-export default routes
+export default routes;

@@ -1,6 +1,5 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -8,15 +7,15 @@
 </template>
 
 <script>
-import EssentialLink from 'components/EssentialLink.vue'
+import EssentialLink from 'components/EssentialLink.vue';
 
 export default {
-  name: 'The_Front',
+  name: 'TheFront',
   components: { EssentialLink },
-  data () {
+  data() {
     return {
-      essentialLinks: linksData
-    }
-  }
-}
+      essentialLinks: linksData,
+    };
+  },
+};
 </script>
