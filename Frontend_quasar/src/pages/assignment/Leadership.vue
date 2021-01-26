@@ -1,9 +1,9 @@
 <template>
-  <q-page padding>
-    <div class="row q-pt-lg justify-left">
+  <q-page>
+    <div class="row q-pt-lg q-ml-sm justify-left">
       <div
         class="q-pa-md"
-        v-for="count in 2"
+        v-for="count in 4"
         :key="count"
       >
         <q-card class="my-card float-left cus-size">

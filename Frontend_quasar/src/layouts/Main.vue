@@ -88,7 +88,7 @@
 </template>
 
 <script>
-import DialogMakeStructure from 'components/DialogMakeStructure';
+import DialogMakeStructure from 'components/Dialog/DialogMakeStructure';
 import CustomLink from 'components/CustomLink';
 import { uid } from 'quasar';
 

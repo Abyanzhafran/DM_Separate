@@ -1,16 +1,16 @@
 <template>
-  <q-page padding>
-    <div class="row q-pt-lg justify-left">
+  <q-page>
+    <div class="row q-pt-lg q-ml-sm justify-left">
       <div
         class="q-pa-md"
-        v-for="count in 2"
+        v-for="count in 4"
         :key="count"
       >
         <q-card class="my-card float-left cus-size">
           <q-card-section>
             <div class="text-h5">
               <a
-                href="/#/access/leadership"
+                href="/#/access/stakeholder"
                 class="cus-card-stk"
               >Event Controller</a>
               <q-btn

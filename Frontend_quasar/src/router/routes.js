@@ -28,10 +28,17 @@ const routes = [
     ],
   },
   {
-    path: '/access',
-    component: () => import('layouts/userAccessLayouts/MainUserAccess.vue'),
+    path: '/access/leadership',
+    component: () => import('layouts/MainUserAccessLayouts/UserAccessLeader.vue'),
     children: [
       { path: '/access/leadership', component: () => import('pages/userAccess/LeadershipAccess.vue') },
+    ],
+  },
+  {
+    path: '/access/stakeholder',
+    component: () => import('layouts/MainUserAccessLayouts/UserAccessStakeholder.vue'),
+    children: [
+      { path: '/access/stakeholder', component: () => import('pages/userAccess/StakeholderAccess.vue') },
     ],
   },
   // Always leave this as last one,

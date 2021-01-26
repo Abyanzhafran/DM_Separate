@@ -7,7 +7,6 @@
       elevated
       class="bg-white"
     >
-      <!--bg-teal-14 -->
 
       <q-toolbar>
         <q-btn
@@ -17,7 +16,7 @@
           style="color: black"
         />
         <q-toolbar-title class="text-grey-10 text-bold absolute-center">
-          Leadership access
+          Stakeholder access
         </q-toolbar-title>
         <div class="absolute-right q-pt-sm q-pr-md">
           <q-btn

@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md">
+  <div>
     <q-layout view="hHh Lpr lff">
       <q-header
         elevated
