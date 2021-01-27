@@ -173,7 +173,7 @@
                   round
                   dense
                   flat
-                  icon="add_box"  
+                  icon="add_box"
                   style="font-size: 0.8em"
                 />
               </div>

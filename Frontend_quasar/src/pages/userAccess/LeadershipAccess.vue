@@ -4,14 +4,14 @@
       <q-card
         flat
         bordered
-        class="my-card cus-card q-ml-sm"
+        class="my-card cus-list-body q-ml-sm"
       >
         <q-linear-progress
           size="15px"
           :value="progress"
         />
         <q-card-section>
-          <div class="q-pb-md cus-list">
+          <div class="q-pb-md cus-list-title">
             Current Project
           </div>
           <q-card
@@ -19,7 +19,10 @@
             v-for="count in 2"
             :key="count"
           >
-            <q-card-section class="bg-white">
+            <q-card-section
+              v-ripple
+              class="cus-card"
+            >
               <div class="text-h6">
                 Our Changing Planet
               </div>
@@ -36,7 +39,7 @@
       <q-card
         flat
         bordered
-        class="my-card cus-card q-ml-sm"
+        class="my-card cus-list-body q-ml-sm"
       >
         <q-linear-progress
           size="15px"
@@ -44,7 +47,7 @@
           color="warning"
         />
         <q-card-section>
-          <div class="q-pb-md cus-list">
+          <div class="q-pb-md cus-list-title">
             Up Next
           </div>
           <q-card
@@ -52,7 +55,10 @@
             v-for="count in 3"
             :key="count"
           >
-            <q-card-section class="bg-white">
+            <q-card-section
+              v-ripple
+              class="cus-card"
+            >
               <div class="text-h6">
                 Our Changing Planet
               </div>
@@ -69,7 +75,7 @@
       <q-card
         flat
         bordered
-        class="my-card cus-card q-ml-sm"
+        class="my-card cus-list-body q-ml-sm"
       >
         <q-linear-progress
           size="15px"
@@ -77,7 +83,7 @@
           color="red"
         />
         <q-card-section>
-          <div class="q-pb-none cus-list">
+          <div class="q-pb-none cus-list-title">
             Urgent
             <q-btn
               flat
@@ -98,7 +104,10 @@
               v-for="listUrgent in listUrgents"
               :key="listUrgent.id"
             >
-              <q-card-section class="bg-white">
+              <q-card-section
+                v-ripple
+                class="cus-card"
+              >
                 <div class="text-h6">
                   Our Changing Planet
                 </div>
@@ -122,7 +131,7 @@
       <q-card
         flat
         bordered
-        class="my-card cus-card q-ml-sm"
+        class="my-card cus-list-body q-ml-sm"
       >
         <q-linear-progress
           size="15px"
@@ -130,7 +139,7 @@
           color="green"
         />
         <q-card-section>
-          <div class="q-pb-none cus-list">
+          <div class="q-pb-none cus-list-title">
             Done
             <q-btn
               flat
@@ -151,7 +160,11 @@
               v-for="listDone in listDones"
               :key="listDone.id"
             >
-              <q-card-section class="bg-white">
+              <q-card-section
+                v-ripple
+                class="cus-card"
+                @click="dialogClick"
+              >
                 <div class="text-h6">
                   Our Changing Planet
                 </div>
@@ -169,32 +182,35 @@
           </q-card-section>
         </div>
       </q-card>
+
+      <!-- DIALOG USER ACCESS -->
+      <dialog-access v-model="dialog" />
     </div>
   </div>
 </template>
 
 <script>
-import { uid, scroll } from 'quasar';
-
-const { getScrollPosition, setScrollPosition } = scroll;
+import { uid } from 'quasar';
+import DialogAccess from 'components/Dialog/DialogAccess';
 
 export default {
   name: 'PageIndex',
-  data: () => ({
-    progress: 1.0,
-
-    listDones: [
-      {
-        id: uid(),
-      },
-    ],
-    listUrgents: [
-      {
-        id: uid(),
-      },
-    ],
-
-  }),
+  data() {
+    return {
+      dialog: false,
+      progress: 1.0,
+      listDones: [
+        {
+          id: uid(),
+        },
+      ],
+      listUrgents: [
+        {
+          id: uid(),
+        },
+      ],
+    };
+  },
   methods: {
     addCardDone() {
       this.listDones.push({
@@ -206,19 +222,34 @@ export default {
         id: uid(),
       });
     },
+    dialogClick() {
+      this.dialog = !this.dialog;
+    },
+  },
+  components: {
+    DialogAccess,
   },
 };
 </script>
 
 <style lang="css">
-  .cus-card {
+  .cus-list-body {
     background-color: lightgrey;
   }
 
-  .cus-list {
+  .cus-list-title {
     font-size: 18px;
     font-weight: 500;
     max-height: 500px;
+  }
+
+  .cus-card {
+    background-color: white;
+    transition-duration: 0.1s;
+  }
+
+  .cus-card:hover {
+    background-color: gainsboro;
   }
   /* Styling SCROLL */
   /* width */
