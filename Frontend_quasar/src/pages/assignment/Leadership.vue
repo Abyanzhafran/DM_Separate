@@ -26,14 +26,14 @@
               />
             </div>
             <div class="q-mt-md">
-              Iyaak
+              Nama orang
             </div>
             <q-btn
               round
               class="float-right q-mt-sm"
             >
               <q-avatar size="75px">
-                <img src="~assets/iyaak_1.jpg">
+                <img src="~assets/mountain.jpg">
               </q-avatar>
             </q-btn>
           </q-card-section>
